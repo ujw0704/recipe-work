@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import axios from "axios"
 function Login() {
   const [inputdata, setInput] = useState({
     username: '',
@@ -16,6 +17,15 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(inputdata);
+  axios.post("http://localhost:4000/login",{inputdata})
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((err) => {
+    console.error(`Error in post request ${err}`);
+  });
+  
+    
   }
 
   return (
@@ -35,9 +45,12 @@ function Login() {
           value={inputdata.password}
           onChange={handlechange}
         />
+      <div btn>
+
         <button type="submit" >
           Submit
         </button>
+      </div>
 
         <div>
             <p>please register if user is not login</p>

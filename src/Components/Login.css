@@ -23,6 +23,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    
   }
   /* input {
     margin: 10px 0;
@@ -39,17 +40,13 @@
   
   button {
     margin-top: 10px;
-    padding: 10px;
-    background-color: #364c636a;
+    background-color: #000;
     color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    justify-content: center;
-    align-self:center ;
     border-radius: 10px;
-
-  }
+    
+}
   
   button:hover {
     background-color: #424549de;

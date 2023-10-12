@@ -1,15 +1,32 @@
-import React from 'react'
-import "./Home.css"
+
+
+import React from 'react';
+import './Home.css';
+import homeImage from './images/home.jpg';
+import homeImag from "./images/second.jpg"
+import homeeImg from "./images/third.jpg"
+// import homgeImgess from "./images/fouth.jpg"
+
 function Home() {
   return (
-    <div  className='container'>
+    <div className='body'>
+      <div className='image'>
+        <img src={homeImage} alt='Home' />
+      </div>
+      <div className='image'>
+        <img src={homeImag} alt ='home'/>
+      </div>
+      <div className='image'>
 
+        <img src ={homeeImg} alt='home'/>
+      </div>
+      {/* <div className='fouthimg'>
 
-    <div className='images'>
-      <image src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80"/>
+        <img src ={homgeImgess} alt="home"/>
+      </div> */}
+
     </div>
-    </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
