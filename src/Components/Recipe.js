@@ -1,11 +1,15 @@
 import React, { useEffect ,useContext} from 'react';
 import axios from 'axios';
+
 import "./Recipe.css"
 import DiningIcon from '@mui/icons-material/Dining';
 import {food } from "../App"
 function Recipe() {
   const { recipe, setRecipe } = useContext(food)
 
+     
+  
+   
   useEffect(() => {
     axios
       .get('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -55,6 +59,7 @@ function Recipe() {
           <div className='btn'>
         <button onClick={(e)=>handleClick(e,recipeItem)}>your order is ready</button>
         </div>
+       
         </div>
         
       ))}

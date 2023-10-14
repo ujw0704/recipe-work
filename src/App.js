@@ -7,6 +7,8 @@ import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Header from "./Components/Header"
 import Home from "./Components/Home"
+import Adminlogin from "./Components/Admin/Login"
+import AdminRegister from "./Components/Admin/Registration"
 import {BrowserRouter,Route,Routes} from "react-router-dom"
 export const food = createContext({})
 
@@ -28,6 +30,8 @@ function App() {
           <Route  path="/login" element={<Login/>}></Route>
           <Route  path="/register" element={<Register/>}></Route>
           <Route   path ="/recipe" element={<Recipe/>}></Route>
+          <Route  path="/Adminlogin" element={<Adminlogin/>}></Route>
+          <Route  path="/AdminRegister" element={<AdminRegister/>}></Route>
         {/* <Recipe/> */}
        {/* <Login/> */}
        {/* <Register/> */}

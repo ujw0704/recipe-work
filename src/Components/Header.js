@@ -6,6 +6,9 @@ function Header() {
     <div className= " header">
         <ul>
             <li>
+                <Link to ="/AdminLogin">Admin</Link>
+            </li>
+            <li>
                 <Link to = "/">Home</Link>
             </li>
             <li>

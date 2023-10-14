@@ -1,14 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
  import "./Register.css"
+ import axios from "axios"
 function Register() {
  
 const [Data, SetData]= useState({
-Name: "",UserName: "",Email: "",Password: "",PhoneNo: ""
+Name: "",Username: "",Email: "",Password: "",Number: ""
 })
 
 function handlechange(e){
-    e.preventDefault()
+    
     SetData({...Data,[e.target.name]:e.target.value
     })
   
@@ -16,7 +17,15 @@ function handlechange(e){
 }
     function handleSubmit(e){
         e.preventDefault()
-        console.log(Data)
+      
+        axios.post("http://localhost:4000/signup",{Data})
+        .then((response) => {
+          console.log(response.data);
+          console.log(Data)
+        })
+        .catch((err) => {
+          console.error(`Error in post request ${err}`);
+        });
     }
   
 
@@ -26,10 +35,10 @@ function handlechange(e){
         <form onSubmit={handleSubmit} className='form-register'>
 
       <input type='text' placeholder='enter your Name '  name ="Name"value={Data.Name} onChange={handlechange}/>
-      <input type='text' placeholder='enter your UserName ' name ="UserName"value={Data.UserName} onChange={handlechange}/>
-      <input type='text' placeholder='enter your email '  Email ="name"value={Data.Email} onChange={handlechange}/>
+      <input type='text' placeholder='enter your Username ' name ="Username"value={Data.Username} onChange={handlechange}/>
+      <input type='text' placeholder='enter your Email '  name ="Email"value={Data.Email} onChange={handlechange}/>
       <input type='text' placeholder='enter your Password ' name ="Password"value={Data.Password} onChange={handlechange}/>
-      <input type='text' placeholder='enter your PhoneNO '  name ="PhoneNO"value={Data.PhoneNo} onChange={handlechange}/>
+      <input type='text' placeholder='enter your PhoneNO '  name ="Number"value={Data.Number} onChange={handlechange}/>
       <button type='submit'>submit</button>
         </form>
     </div>
