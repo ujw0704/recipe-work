@@ -17,6 +17,9 @@ function Header() {
             <li>
                 <Link to ="/recipe">Recipe</Link>
             </li>
+            <li>
+                <Link to ="/Addrecipe">Addrecipe</Link>
+            </li>
         </ul>
       
     </div>
