@@ -1,5 +1,5 @@
 import React,{useState}from 'react'
-
+import "./Addrecipe.css"
 function Addrecipe() {
     let[name, SetName]=useState("")
     let [price,setPrice] =useState("")
@@ -18,8 +18,8 @@ function Addrecipe() {
 
      }
   return (
-    <div >
-        <form onSubmit={handleSubmit} >
+    <div className='Addrecipe' >
+        <form onSubmit={handleSubmit} className='FormAddrecipe' >
 
         <input type='text'placeholder='enter name'value={name}onChange={(e)=>SetName(e.target.value)}/>
         <input type='text'placeholder='enter  price'value={price}onChange={(e)=>setPrice(e.target.value)}/>
