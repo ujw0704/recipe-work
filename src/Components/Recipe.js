@@ -1,15 +1,16 @@
-import React, { useEffect ,useContext} from 'react';
+import React, { useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import "./Recipe.css"
 import DiningIcon from '@mui/icons-material/Dining';
-import {food } from "../App"
-function Recipe() {
-  const { recipe, setRecipe } = useContext(food)
+import { food } from "../App"
 
-     
-  
-   
+function Recipe() {
+  const { recipe, setRecipe, CartData, setCartData } = useContext(food)
+
+
+
+
   useEffect(() => {
     axios
       .get('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -20,7 +21,7 @@ function Recipe() {
       .catch((err) => {
         console.error(`Error in fetching data: ${err}`);
       });
-  },[]);
+  }, []);
 
   useEffect(() => {
     axios
@@ -33,38 +34,49 @@ function Recipe() {
       });
   }, [recipe]);
 
-     function handleClick(e,recipeItem){
-         let item=recipe
-        e.preventDefault()
-       setRecipe([...recipe,recipeItem])
-
-     }  
 
 
+  function handleClick(e, recipeItem){
+    e.preventDefault()
+    console.log("ujal")
+    console.log(recipeItem)
+    console.log("ujwal")
+ setCartData((CartData)=>{
+  return[...CartData, recipeItem]
+  
+ })
+
+  }
+console.log(CartData)
   return (
     <div className='wrapper'>
       <span><i class="fa-solid fa-utensils-slash"></i></span>
-      <h1> <DiningIcon/>  g20 restaurant</h1>
-       <h2>menu card</h2>
+      <h1> <DiningIcon />  g20 restaurant</h1>
+      <h2>menu card</h2>
       <ul className='recipe-list'>
-       
-      { recipe && recipe.map((recipeItem, index) => (
-        <div  className ="recipe"key={index}>
+
+        {recipe && recipe.map((recipeItem, index) => {
+
+          return (
+            
+            <div className="recipe" key={index}>
           <p>{recipeItem.strCategory}</p>
-          <p>{recipeItem.strCategoryDescription.length>10 ?recipeItem.strCategoryDescription.slice(0,37):recipeItem.strCategoryDescription}</p>
+          <p>{recipeItem.strCategoryDescription.length > 10 ? recipeItem.strCategoryDescription.slice(0, 37) : recipeItem.strCategoryDescription}</p>
           <div className='images'>
 
-          <img src={recipeItem.strCategoryThumb}alt='img'/>
+            <img src={recipeItem.strCategoryThumb} alt='img' />
           </div>
           <div className='btn'>
-        <button onClick={(e)=>handleClick(e,recipeItem)}>your order is ready</button>
-        </div>
-       
+            <button onClick={(e) => handleClick(e, recipeItem)}>your order is ready</button>
+          </div>
+
         </div>
         
-      ))}
+        )
+      }
+        )}
       </ul>
-     
+
     </div>
   );
 }

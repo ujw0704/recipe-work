@@ -20,6 +20,10 @@ function Header() {
             <li>
                 <Link to ="/Addrecipe">Addrecipe</Link>
             </li>
+
+            <li>
+                <Link to ="/Cart">Cart</Link>
+            </li>
         </ul>
       
     </div>
